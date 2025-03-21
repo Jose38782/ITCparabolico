@@ -23,8 +23,9 @@ def tap(x, y):
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        #Velocidad del disparo en X y Y
+        speed.x = (x + 200) / 8
+        speed.y = (y + 200) / 10
 
 
 def inside(xy):
@@ -54,11 +55,13 @@ def move():
         target = vector(200, y)
         targets.append(target)
 
+    #Aumentamos la velocidad del moviento en el eje x
     for target in targets:
-        target.x -= 0.5
+        target.x -= 3
 
+    #Aumentamos la velocidad del objeto en la caida en el eje y
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.5
         ball.move(speed)
 
     dupe = targets.copy()
